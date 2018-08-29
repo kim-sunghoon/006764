@@ -26,6 +26,7 @@ def index_words(text):
     if text:
         result.append(0)
     for index, letter in enumerate(text):
+        #print(index, letter)
         if letter == ' ':
             result.append(index + 1)
     return result
@@ -33,8 +34,11 @@ def index_words(text):
 
 # Example 2
 address = 'Four score and seven years ago...'
+
+#print(index_words(address))
 address = 'Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.'
 result = index_words(address)
+#print(result)
 print(result[:3])
 
 
@@ -44,10 +48,12 @@ def index_words_iter(text):
         yield 0
     for index, letter in enumerate(text):
         if letter == ' ':
+            #print(index, letter)
             yield index + 1
 
 
 # Example 4
+#print(index_words_iter(address))
 result = list(index_words_iter(address))
 print(result[:3])
 
@@ -63,7 +69,6 @@ def index_file(handle):
             if letter == ' ':
                 yield offset
 
-
 # Example 6
 address_lines = """Four score and seven years
 ago our fathers brought forth on this
@@ -72,6 +77,7 @@ and dedicated to the proposition that all men
 are created equal."""
 
 with open('address.txt', 'w') as f:
+    #print(address_lines)
     f.write(address_lines)
 
 from itertools import islice

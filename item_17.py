@@ -24,6 +24,7 @@ from sys import stdout as STDOUT
 def normalize(numbers):
     total = sum(numbers)
     result = []
+    #print(total)
     for value in numbers:
         percent = 100 * value / total
         result.append(percent)
@@ -45,18 +46,23 @@ with open(path, 'w') as f:
 def read_visits(data_path):
     with open(data_path) as f:
         for line in f:
+            #print("Hi")
+            #print(int(line))
             yield int(line)
 
 
 # Example 4
 it = read_visits('my_numbers.txt')
+#print("example 4")
+#print(it)
 percentages = normalize(it)
 print(percentages)
 
 
 # Example 5
 it = read_visits('my_numbers.txt')
-print(list(it))
+#print("example 5")
+#print(list(it))
 print(list(it))  # Already exhausted
 
 
@@ -102,8 +108,8 @@ class ReadVisits(object):
             for line in f:
                 yield int(line)
 
-
 # Example 11
+print("example 11")
 visits = ReadVisits(path)
 percentages = normalize(visits)
 print(percentages)
@@ -121,12 +127,12 @@ def normalize_defensive(numbers):
     return result
 
 
+#help(iter)
 # Example 13
 visits = [15, 35, 80]
 normalize_defensive(visits)  # No error
 visits = ReadVisits(path)
 normalize_defensive(visits)  # No error
-
 
 # Example 14
 try:
